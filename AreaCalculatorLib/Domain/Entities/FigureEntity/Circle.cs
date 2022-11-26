@@ -13,10 +13,13 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
         internal LineSegment Radius { get; }
 
         #region .ctors
-        public Circle(double radius)
+        internal Circle(double radius)
         {
             Radius = new LineSegment(radius);
         }
+
+        internal Circle(double[] values):this(values == null || !values.Any() ? 0.0 : values[0])
+        { }
         #endregion
 
         internal override double Area() => Math.PI * Radius.SquareLength();

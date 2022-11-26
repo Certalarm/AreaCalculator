@@ -15,27 +15,34 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
         internal LineSegment SideC { get; }
 
         #region .ctors
-        public Triangle(double sideA, double sideB, double sideC)
+        private Triangle()
+        {
+            SideA = new LineSegment(0.0);
+            SideB = new LineSegment(0.0);
+            SideC = new LineSegment(0.0);
+        }
+
+        internal Triangle(double sideA, double sideB, double sideC)
         {
             SideA = new LineSegment(sideA);
             SideB = new LineSegment(sideB);
             SideC = new LineSegment(sideC);
         }
+
+        internal Triangle(double[] values): this()
+        {
+            if (!Validate(values)) return;
+            SideA = new LineSegment(values[0]);
+            SideB = new LineSegment(values[1]);
+            SideC = new LineSegment(values[2]);
+        }
         #endregion
+
+        private bool Validate(double[] values) => 
+            values != null && values.Length >= 3; // 3 is triangle side count
 
         internal bool HasSideZeroLen() => 
             SideA.Length == 0.0 || SideB.Length == 0.0 || SideC.Length == 0.0; 
-
-        internal bool IsRightAngled()
-        {
-            if (HasSideZeroLen()) 
-                return false;
-            var sideSquareLens = new[] { SideA.SquareLength(), SideB.SquareLength(), SideC.SquareLength() };
-            var orderedSideSquareLens = sideSquareLens.OrderBy(x => x);
-            var maxSquareLen = orderedSideSquareLens.Last();
-            var squareLensWithoutMax = orderedSideSquareLens.Take(2);
-            return maxSquareLen == squareLensWithoutMax.Sum(x => x);
-        }
 
         internal override double Area()
         {
