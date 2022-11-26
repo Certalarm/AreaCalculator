@@ -35,7 +35,7 @@ namespace AreaCalculatorLib.Domain.UseCases
                 //
                 // TODO: New Figure's type place HERE!
                 //
-                _ => null!
+                _ => throw new ArgumentException(UnknownFigureTypeExMessage)
             };
     }
 }
