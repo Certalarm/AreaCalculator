@@ -1,6 +1,6 @@
 ﻿namespace AreaCalculatorLib
 {
-    public class Class1
+    public class Dispatcher
     {
 
     }
