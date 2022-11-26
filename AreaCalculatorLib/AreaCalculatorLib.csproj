@@ -7,10 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\UseCases\" />
     <Folder Include="Representation\Controllers\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
 
 </Project>
