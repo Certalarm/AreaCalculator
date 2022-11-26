@@ -13,9 +13,7 @@ namespace AreaCalculatorLib.Domain.UseCases
             if (!Validate(figureType, values)) 
                 return 0.0;
             var figure = CreateFigure(figureType, values);
-            return figure == null
-                ? 0.0
-                : figure.Area();
+            return figure.Area();
         }
 
         private static bool Validate(string figureType, double[] values)
