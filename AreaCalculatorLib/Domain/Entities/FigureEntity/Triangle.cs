@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
+﻿using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
 
 namespace AreaCalculatorLib.Domain.Entities.FigureEntity
 {
@@ -38,9 +32,6 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
         }
         #endregion
 
-        private bool Validate(double[] values) => 
-            values != null && values.Length >= 3; // 3 is triangle side count
-
         internal bool HasSideZeroLen() => 
             SideA.Length == 0.0 || SideB.Length == 0.0 || SideC.Length == 0.0; 
 
@@ -51,6 +42,9 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
             var p = SemiPerimeter();
             return Math.Sqrt(p * (p - SideA.Length) * (p - SideB.Length) * (p - SideC.Length));
         }
+
+        private static bool Validate(double[] values) =>
+            values != null && values.Length >= 3; // 3 is triangle side count
 
         private double SemiPerimeter() => (SideA.Length + SideB.Length + SideC.Length) / 2.0;
     }

@@ -19,22 +19,22 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
 
         public LineSegment(double length):this()
         {
-            Length = initLength(length);
+            Length = InitLength(length);
         }
         #endregion
 
-        public double SquareLength() =>
-            isZeroLength()
+        internal double SquareLength() =>
+            IsZeroLength()
                 ? 0.0
                 : Length * Length;
 
-        private bool isZeroLength() => Length == 0.0;
+        private bool IsZeroLength() => Length == 0.0;
 
-        private double initLength(double length) 
+        private static double InitLength(double length) 
         {
             if(length < 0.0) 
             {
-                throw new Exception(OnlyPositiveExMessage);
+                throw new ArgumentException(OnlyPositiveExMessage);
             }
             return length;
         }

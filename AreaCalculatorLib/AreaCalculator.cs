@@ -1,5 +1,4 @@
 ﻿using AreaCalculatorLib.Domain.UseCases;
-using static AreaCalculatorLib.Utility.Txt;
 
 namespace AreaCalculatorLib
 {
@@ -16,6 +15,5 @@ namespace AreaCalculatorLib
             var interactor = new IsTriangleRightAngledInteractor();
             return interactor.Execute(sideA, sideB, sideC);
         }
-
     }
 }

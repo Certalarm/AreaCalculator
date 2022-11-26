@@ -1,12 +1,6 @@
 ﻿using AreaCalculatorLib.Domain.Entities.FigureEntity;
 using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading.Tasks;
 using static AreaCalculatorLib.Utility.Txt;
 
 [assembly: InternalsVisibleTo("AreaCalculatorLib.Tests")]
@@ -27,9 +21,9 @@ namespace AreaCalculatorLib.Domain.UseCases
         private static bool Validate(string figureType, double[] values)
         {
             if (string.IsNullOrEmpty(figureType))
-                throw new Exception(FigureTypeIsEmptyExMessage);
+                throw new ArgumentException(FigureTypeIsEmptyExMessage);
             if (values == null || !values.Any())
-                throw new Exception(AreaValuesIsEmptyExMessage);
+                throw new ArgumentException(AreaValuesIsEmptyExMessage);
             return true;
         }
 
@@ -39,9 +33,9 @@ namespace AreaCalculatorLib.Domain.UseCases
                 "circle" => new Circle(values),
                 "triangle" => new Triangle(values),
                 //
-                // TODO: New Figure type place HERE!
+                // TODO: New Figure's type place HERE!
                 //
-                _ => null
+                _ => null!
             };
     }
 }
