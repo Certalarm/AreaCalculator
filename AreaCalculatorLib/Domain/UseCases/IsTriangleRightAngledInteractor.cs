@@ -1,10 +1,5 @@
 ﻿using AreaCalculatorLib.Domain.Entities.FigureEntity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("AreaCalculatorLib.Tests")]
 namespace AreaCalculatorLib.Domain.UseCases
@@ -22,9 +17,9 @@ namespace AreaCalculatorLib.Domain.UseCases
             if (triangle.HasSideZeroLen())
                 return false;
             var orderedSquareSides = BuildOrderedSquareSides(triangle);
-            var maxSquareLen = orderedSquareSides.Last();
-            var squareLensWithoutMax = orderedSquareSides.Take(2);
-            return maxSquareLen == squareLensWithoutMax.Sum(x => x);
+            var maxSquareSide = orderedSquareSides.Last();
+            var squareSidesWithoutMax = orderedSquareSides.Take(2);
+            return maxSquareSide == squareSidesWithoutMax.Sum(x => x);
         }
 
         private static IEnumerable<double> BuildOrderedSquareSides(Triangle triangle) =>

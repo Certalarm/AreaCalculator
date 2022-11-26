@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
+﻿using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
 
 namespace AreaCalculatorLib.Domain.Entities.FigureEntity
 {
@@ -18,10 +12,15 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
             Radius = new LineSegment(radius);
         }
 
-        internal Circle(double[] values):this(values == null || !values.Any() ? 0.0 : values[0])
+        internal Circle(double[] values) : this(InitRadius(values))
         { }
         #endregion
 
         internal override double Area() => Math.PI * Radius.SquareLength();
+
+        private static double InitRadius(double[] values) =>
+            values == null || !values.Any()
+                ? 0.0
+                : values[0];
     }
 }
