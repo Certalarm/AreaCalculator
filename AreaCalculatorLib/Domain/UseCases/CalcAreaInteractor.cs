@@ -1,5 +1,7 @@
 ﻿using AreaCalculatorLib.Domain.Entities.FigureEntity;
 using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
+using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using static AreaCalculatorLib.Utility.Txt;
 
@@ -20,8 +22,6 @@ namespace AreaCalculatorLib.Domain.UseCases
         {
             if (string.IsNullOrEmpty(figureType))
                 throw new ArgumentException(FigureTypeIsEmptyExMessage);
-            if (values == null || !values.Any())
-                throw new ArgumentException(AreaValuesIsEmptyExMessage);
             return true;
         }
 

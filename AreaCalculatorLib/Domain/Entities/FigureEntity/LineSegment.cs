@@ -12,12 +12,7 @@ namespace AreaCalculatorLib.Domain.Entities.FigureEntity
         internal readonly double Length;
 
         #region .ctors
-        public LineSegment()
-        {
-            Length = 0.0;
-        }
-
-        public LineSegment(double length):this()
+        public LineSegment(double length)
         {
             Length = InitLength(length);
         }

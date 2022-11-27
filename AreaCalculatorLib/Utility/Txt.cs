@@ -4,7 +4,6 @@
     {
         public const string OnlyPositiveExMessage = "Допустимы только положительные значения!";
         public const string FigureTypeIsEmptyExMessage = "Не указан тип фигуры!";
-        public const string AreaValuesIsEmptyExMessage = "Не указаны данные для расчета площади фигуры!";
         public const string UnknownFigureTypeExMessage = "Неизвестный тип фигуры!";
     }
 }
