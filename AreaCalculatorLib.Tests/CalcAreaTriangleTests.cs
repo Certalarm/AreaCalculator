@@ -1,7 +1,7 @@
-﻿using AreaCalculatorLib.Domain.UseCases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xunit;
+using AreaCalculatorLib.Domain.UseCases;
 
 namespace AreaCalculatorLib.Tests
 {
