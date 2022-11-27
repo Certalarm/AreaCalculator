@@ -12,13 +12,13 @@ namespace AreaCalculatorLib.Domain.UseCases
     {
         internal double Execute(string figureType, double[] values)
         {
-            if (!Validate(figureType, values)) 
+            if (!Validate(figureType)) 
                 return 0.0;
             var figure = CreateFigure(figureType, values);
             return figure.Area();
         }
 
-        private static bool Validate(string figureType, double[] values)
+        private static bool Validate(string figureType)
         {
             if (string.IsNullOrEmpty(figureType))
                 throw new ArgumentException(FigureTypeIsEmptyExMessage);
