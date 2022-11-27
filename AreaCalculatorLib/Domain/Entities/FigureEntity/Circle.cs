@@ -1,4 +1,6 @@
 ﻿using AreaCalculatorLib.Domain.Entities.FigureEntity.Base;
+using System;
+using System.Linq;
 
 namespace AreaCalculatorLib.Domain.Entities.FigureEntity
 {
