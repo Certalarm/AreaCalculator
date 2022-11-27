@@ -17,9 +17,9 @@ namespace AreaCalculatorLib.Domain.UseCases
             if (triangle.HasSideZeroLen())
                 return false;
             var orderedSquareSides = BuildOrderedSquareSides(triangle);
-            var maxSquareSide = orderedSquareSides.Last();
-            var squareSidesWithoutMax = orderedSquareSides.Take(2);
-            return maxSquareSide == squareSidesWithoutMax.Sum(x => x);
+            var maxSquareSide = orderedSquareSides.Last();              // square of Hypotenuse,
+            var squareSidesWithoutMax = orderedSquareSides.Take(2);     // katet squares
+            return maxSquareSide == squareSidesWithoutMax.Sum(x => x);  // Pythagorean theorem
         }
 
         private static IEnumerable<double> BuildOrderedSquareSides(Triangle triangle) =>
